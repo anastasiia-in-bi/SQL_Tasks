@@ -1,4 +1,4 @@
---task1: Âûâåäèòå â àëôàâèòíîì ïîğÿäêå íàçâàíèÿ êîìåäèèé, âûïóùåííûõ â ïåğèîä ñ 2000 ïî 2004 ãîä
+--task1: Ğ’Ñ‹Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ² Ğ°Ğ»Ñ„Ğ°Ğ²Ğ¸Ñ‚Ğ½Ğ¾Ğ¼ Ğ¿Ğ¾Ñ€ÑĞ´ĞºĞµ Ğ½Ğ°Ğ·Ğ²Ğ°Ğ½Ğ¸Ñ ĞºĞ¾Ğ¼ĞµĞ´Ğ¸Ğ¸Ğ¹, Ğ²Ñ‹Ğ¿ÑƒÑ‰ĞµĞ½Ğ½Ñ‹Ñ… Ğ² Ğ¿ĞµÑ€Ğ¸Ğ¾Ğ´ Ñ 2000 Ğ¿Ğ¾ 2004 Ğ³Ğ¾Ğ´
 --there and after i use not capital letters, cause my editor always changes them to this version
 select title
 from film
@@ -12,7 +12,7 @@ and film_id in
         where upper(name)='COMEDY'))
 order by title;
 
---task2: Äîõîä (revenue) ìàãàçèíîâ ïğîêàòà â 2017 ãîäó (êîëîíêè address è address1 – êàê îäíà ñòğîêà, revenue)
+--task2: Ğ”Ğ¾Ñ…Ğ¾Ğ´ (revenue) Ğ¼Ğ°Ğ³Ğ°Ğ·Ğ¸Ğ½Ğ¾Ğ² Ğ¿Ñ€Ğ¾ĞºĞ°Ñ‚Ğ° Ğ² 2017 Ğ³Ğ¾Ğ´Ñƒ (ĞºĞ¾Ğ»Ğ¾Ğ½ĞºĞ¸ address Ğ¸ address1 â€“ ĞºĞ°Ğº Ğ¾Ğ´Ğ½Ğ° ÑÑ‚Ñ€Ğ¾ĞºĞ°, revenue)
 select concat(a.address, ' ', a.address2) as store_address, sum(p.amount) as revenue --the tables don't have address1 column, so I combined the address with the address2
 from address a join store s on a.address_id=s.address_id 
 join inventory i on s.store_id=i.store_id 
@@ -22,15 +22,15 @@ WHERE p.payment_date > '2016-12-31' AND p.payment_date < '2018-01-01'
 group by store_address
 order by revenue desc;
     
---task3: Top-3 àêòåğîâ ïî ÷èñëó ôèëüìîâ â êîòîğûõ îíè ïğèíÿëè ó÷àñòèå (êîëîíêè first_name, last_name, number_of_movies ), ñîğòèğîâêà ïî ÷èñëó ôèëüìîâ â ïîğÿäêå óìåíüøåíèÿ
+--task3: Top-3 Ğ°ĞºÑ‚ĞµÑ€Ğ¾Ğ² Ğ¿Ğ¾ Ñ‡Ğ¸ÑĞ»Ñƒ Ñ„Ğ¸Ğ»ÑŒĞ¼Ğ¾Ğ² Ğ² ĞºĞ¾Ñ‚Ğ¾Ñ€Ñ‹Ñ… Ğ¾Ğ½Ğ¸ Ğ¿Ñ€Ğ¸Ğ½ÑĞ»Ğ¸ ÑƒÑ‡Ğ°ÑÑ‚Ğ¸Ğµ (ĞºĞ¾Ğ»Ğ¾Ğ½ĞºĞ¸ first_name, last_name, number_of_movies ), ÑĞ¾Ñ€Ñ‚Ğ¸Ñ€Ğ¾Ğ²ĞºĞ° Ğ¿Ğ¾ Ñ‡Ğ¸ÑĞ»Ñƒ Ñ„Ğ¸Ğ»ÑŒĞ¼Ğ¾Ğ² Ğ² Ğ¿Ğ¾Ñ€ÑĞ´ĞºĞµ ÑƒĞ¼ĞµĞ½ÑŒÑˆĞµĞ½Ğ¸Ñ
 select a.first_name as actor_first_name, a.last_name as actor_lat_name, count(distinct fa.film_id) as number_of_movies
 from actor a left join film_actor fa on a.actor_id=fa.actor_id 
 group by actor_first_name, a.last_name
 order by count(distinct fa.film_id) desc 
 limit 3;
 
-/*task4: Êîëè÷åñòâî êîìåäèé, áîåâèêîâ è ôèëüìîâ óæàñîâ ïî ãîäàì (â ñòğîêå: ãîä, êîëè÷åñòâî êîìåäèé,
-êîëè÷åñòâî óæàñîâ è êîëè÷åñòâî áîåâèêîâ), îòñîğòèğîâàíî ïî óáûâàíèş ëåò*/
+/*task4: ĞšĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ ĞºĞ¾Ğ¼ĞµĞ´Ğ¸Ğ¹, Ğ±Ğ¾ĞµĞ²Ğ¸ĞºĞ¾Ğ² Ğ¸ Ñ„Ğ¸Ğ»ÑŒĞ¼Ğ¾Ğ² ÑƒĞ¶Ğ°ÑĞ¾Ğ² Ğ¿Ğ¾ Ğ³Ğ¾Ğ´Ğ°Ğ¼ (Ğ² ÑÑ‚Ñ€Ğ¾ĞºĞµ: Ğ³Ğ¾Ğ´, ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ ĞºĞ¾Ğ¼ĞµĞ´Ğ¸Ğ¹,
+ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ ÑƒĞ¶Ğ°ÑĞ¾Ğ² Ğ¸ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ Ğ±Ğ¾ĞµĞ²Ğ¸ĞºĞ¾Ğ²), Ğ¾Ñ‚ÑĞ¾Ñ€Ñ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¾ Ğ¿Ğ¾ ÑƒĞ±Ñ‹Ğ²Ğ°Ğ½Ğ¸Ñ Ğ»ĞµÑ‚*/
 
 select f.release_year as year, 
 count(case when upper(c.name)='COMEDY' then 1 else null end) as Count_of_comedies, 
@@ -40,8 +40,8 @@ from film f left join film_category fc on f.film_id=fc.film_id left join categor
 group by f.release_year
 order by f.release_year desc;
 
-/*task5: Êàêèå àêòåğû íå ñíèìàëèñü äîëüøå îñòàëüíûõ (â ñğîêå ïîëíîå èìÿ àêòåğà/àêòğèñû, ãîä âûõîäà
-ïîñëåäíåãî ôèëüìà)*/
+/*task5: ĞšĞ°ĞºĞ¸Ğµ Ğ°ĞºÑ‚ĞµÑ€Ñ‹ Ğ½Ğµ ÑĞ½Ğ¸Ğ¼Ğ°Ğ»Ğ¸ÑÑŒ Ğ´Ğ¾Ğ»ÑŒÑˆĞµ Ğ¾ÑÑ‚Ğ°Ğ»ÑŒĞ½Ñ‹Ñ… (Ğ² ÑÑ€Ğ¾ĞºĞµ Ğ¿Ğ¾Ğ»Ğ½Ğ¾Ğµ Ğ¸Ğ¼Ñ Ğ°ĞºÑ‚ĞµÑ€Ğ°/Ğ°ĞºÑ‚Ñ€Ğ¸ÑÑ‹, Ğ³Ğ¾Ğ´ Ğ²Ñ‹Ñ…Ğ¾Ğ´Ğ°
+Ğ¿Ğ¾ÑĞ»ĞµĞ´Ğ½ĞµĞ³Ğ¾ Ñ„Ğ¸Ğ»ÑŒĞ¼Ğ°)*/
 with max_years as (
     select a.first_name, a.last_name, max(f.release_year) as mry
     from actor a join film_actor fa on a.actor_id=fa.actor_id 
